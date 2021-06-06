@@ -1,0 +1,131 @@
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Great Outdoors</a>
+
+  <!-- Navigation To Home -->
+
+  <button type="button" class="navbar-toggler" id="nav-toggle-button" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Register -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto pull-right mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/addcustomer"
+          *ngIf="!this.isLoggedCustomer && !this.isLoggedAdmin"><span class="glyphicon glyphicon-pencil"></span>
+          REGISTER</a>
+      </li>
+
+      <!--Login As Admin & Customer-->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" *ngIf="!this.isLoggedAdmin && !this.isLoggedCustomer"><span
+            class="glyphicon glyphicon-log-in"></span> LOGIN
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#" class="nav-link active" routerLink="/loginadmin">AS ADMIN</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link active" routerLink="/logincust">AS USER</a>
+          </li>
+        </ul>
+      </li>
+
+      <!--  Product List -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/viewProduct" *ngIf="this.isLoggedAdmin">PRODUCT LIST</a>
+      </li>
+
+      <!-- Search  -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/searchproduct" *ngIf="this.isLoggedCustomer"><span
+            class="glyphicon glyphicon-search"> </span> SEARCH</a>
+      </li>
+
+      <!-- Cart -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/cart" *ngIf="this.isLoggedCustomer"><span
+            class="glyphicon glyphicon-shopping-cart"> </span> CART</a>
+      </li>
+
+      <!-- WishList -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/wishlist" *ngIf="this.isLoggedCustomer"><span
+            class="glyphicon glyphicon-heart"> </span> WISHLIST</a>
+      </li>
+
+      <!-- Order  -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/order" *ngIf="this.isLoggedCustomer"> <span
+            class="glyphicon glyphicon-check"> </span> ORDER</a>
+      </li>
+
+      <!-- More - Profile & Logout -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" *ngIf="this.isLoggedCustomer"> MORE <span
+            class="glyphicon glyphicon-option-vertical"> </span>
+          <!-- <span class="caret"></span> -->
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="nav-link" href="#" routerLink="/profile" *ngIf="this.isLoggedCustomer"><span
+                class="glyphicon glyphicon-user"> </span> PROFILE</a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="#" routerLink="/logoutcust" *ngIf="this.isLoggedCustomer"><span
+                class="glyphicon glyphicon-log-out"> </span> LOGOUT</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Customer List  -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/customer" *ngIf="this.isLoggedAdmin">CUSTOMER LIST</a>
+      </li>
+
+      <!-- View More - Add Product & Sales Report & Growth Report & Logout -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" *ngIf="this.isLoggedAdmin">VIEW MORE <span
+            class="glyphicon glyphicon-option-vertical"> </span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="nav-link" href="#" routerLink="/create" *ngIf="this.isLoggedAdmin"><span
+                class="glyphicon glyphicon-plus"> </span> ADD PRODUCT</a>
+          </li>
+          <li>
+            <a class="nav-link" href="#" routerLink="/salesreport" *ngIf="this.isLoggedAdmin"><span
+                class="glyphicon glyphicon-file"> </span> SALES REPORT</a>
+
+          </li>
+          <li>
+            <a class="nav-link" href="#" routerLink="/growthreport" *ngIf="this.isLoggedAdmin"><span
+                class="glyphicon glyphicon-signal"> </span> GROWTH REPORT</a>
+
+          </li>
+          <li>
+            <a class="nav-link" href="#" routerLink="/logoutcust"
+              *ngIf="this.isLoggedAdmin || this.isLoggedCustomer"><span class="glyphicon glyphicon-log-out"> </span>
+              LOGOUT</a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+</nav>

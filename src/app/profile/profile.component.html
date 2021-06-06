@@ -1,0 +1,260 @@
+<!-- Navigation Selector  -->
+
+<app-nav></app-nav>
+
+<!-- Header -->
+
+<br />
+<div class="container" style="overflow:hidden;">
+  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0); ">
+    <h1 style="text-align: center" class="text-white">CUSTOMER PROFILE</h1>
+  </div>
+
+  <!-- Customer Profile Button  -->
+
+  <div class="text-center">
+    <button class="btn btn-success btn-lg btn-block" type="button " data-toggle="collapse" data-target="#customerform"
+      aria-expanded="false" aria-controls="collapseExample">
+      Customer Information
+    </button>
+  </div>
+</div>
+
+<br />
+<br />
+
+<!-- Form for Customer Details -->
+
+<div class="col-md-3 col-md-offset-3">
+  <div class="container">
+    <form id="customerform">
+      <fieldset disabled>
+        <div class="form-group row">
+          <label for="customerName" class="col-sm-2 col-form-label">Customer Name
+          </label>
+          <div class="col-sm-6">
+            <input type="text" id="customerName" name="customerName" class="form-control"
+              value="{{ customer.customerName }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="mobileNo" class="col-sm-2 col-form-label">Mobile Number
+          </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="number" id="mobileNo" name="mobileNo" value="{{ customer.mobileNo }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-sm-2 col-form-label">Email Address
+          </label>
+          <div class="col-sm-6">
+            <input type="email" id="email" name="email" class="form-control" value="{{ customer.email }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="role" class="col-sm-2 col-form-label">Customer Role
+          </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="role" name="role" value="{{ customer.role }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="buildingNo" class="col-sm-2 col-form-label">Building Number
+          </label>
+          <div class="col-sm-6">
+            <input type="number" id="buildingNo" name="buildingNo" class="form-control"
+              value="{{ customer.address.buildingNo }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="streetName" class="col-sm-2 col-form-label">Street Name
+          </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="streetName" name="streetName"
+              value="{{ customer.address.streetName }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="area" class="col-sm-2 col-form-label">Nearest Area
+          </label>
+          <div class="col-sm-6">
+            <input type="text" id="area" name="area" class="form-control" value="{{ customer.address.area }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="city" class="col-sm-2 col-form-label">City Location
+          </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="city" name="city" value="{{ customer.address.city }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="state" class="col-sm-2 col-form-label">State Location
+          </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="state" name="state" value="{{ customer.address.state }}" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="zip" class="col-sm-2 col-form-label">Zip Code </label>
+          <div class="col-sm-6">
+            <input class="form-control" type="text" id="zip" name="zip" value="{{ customer.address.zip }}" />
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!--Button to Edit Customer Details -->
+
+<div class="container">
+  <div class="text-center">
+    <button class="btn btn-success btn-lg btn-block" type="button" data-toggle="collapse" data-target="#editform"
+      aria-expanded="false" aria-controls="collapseExample">
+      Edit Information
+    </button>
+  </div>
+</div>
+<br />
+<br />
+
+<!-- Edit Customer Profile Form -->
+
+<div class="col-md-3 col-md-offset-3">
+  <div class="container">
+    <form id="editform" class="collapse" (ngSubmit)="editdetail(customer.customerId)" [formGroup]="addForm">
+      <div class="form-group row">
+        <label for="customerName" class="col-sm-2 col-form-label">Customer Name
+        </label>
+        <div class="col-sm-6">
+          <input type="text" formControlName="customerName" id="customerName" name="customerName" class="form-control"
+            [(ngModel)]="customer.customerName" value="{{ customer.customerName }}" />
+          <div *ngIf="Submitted && addForm.controls.customerName.errors">
+            Give Valid Name
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="mobileNo" class="col-sm-2 col-form-label">Mobile Number
+        </label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" id="mobileNo" formControlName="mobileNo"
+            [(ngModel)]="customer.mobileNo" name="mobileNo" value="{{ customer.mobileNo }}" />
+          <div *ngIf="Submitted && addForm.controls.mobileNo.errors">
+            Give mobileNo
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email Address
+        </label>
+        <div class="col-sm-6">
+          <input type="email" formControlName="email" id="email" name="email" [(ngModel)]="customer.email"
+            class="form-control" value="{{ customer.email }}" />
+          <div *ngIf="Submitted && addForm.controls.email.errors">
+            Give email
+          </div>
+        </div>
+      </div>
+
+      <fieldset disabled>
+        <div class="form-group row">
+          <label for="role" class="col-sm-2 col-form-label">Customer Role </label>
+          <div class="col-sm-6">
+            <input class="form-control" formControlName="role" type="text" id="role" name="role"
+              [(ngModel)]="customer.role" value="{{ customer.role }}" />
+            <div *ngIf="Submitted && addForm.controls.role.errors">Give role</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group row">
+        <label for="buildingNo" class="col-sm-2 col-form-label">Building Number
+        </label>
+        <div class="col-sm-6">
+          <input type="number" id="buildingNo" formControlName="buildingNo" name="buildingNo" class="form-control"
+            [(ngModel)]="customer.address.buildingNo" value="{{ customer.address.buildingNo }}" />
+          <div *ngIf="Submitted && addForm.controls.buildingNo.errors">
+            Give buildingNo
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="streetName" class="col-sm-2 col-form-label">Street Name
+        </label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" formControlName="streetName" id="streetName"
+            [(ngModel)]="customer.address.streetName" name="streetName" value="{{ customer.address.streetName }}" />
+          <div *ngIf="Submitted && addForm.controls.streetName.errors">
+            Give streetName
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="area" class="col-sm-2 col-form-label">Nearest Area </label>
+        <div class="col-sm-6">
+          <input type="text" id="area" formControlName="area" name="area" class="form-control"
+            [(ngModel)]="customer.address.area" value="{{ customer.address.area }}" />
+          <div *ngIf="Submitted && addForm.controls.area.errors">Give area</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="city" class="col-sm-2 col-form-label">City Location </label>
+        <div class="col-sm-6">
+          <input class="form-control" type="text" formControlName="city" id="city" name="city"
+            [(ngModel)]="customer.address.city" value="{{ customer.address.city }}" />
+          <div *ngIf="Submitted && addForm.controls.city.errors">Give city</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="state" class="col-sm-2 col-form-label">State Location
+        </label>
+        <div class="col-sm-6">
+          <input class="form-control" formControlName="state" type="text" id="state" name="state"
+            [(ngModel)]="customer.address.state" value="{{ customer.address.state }}" />
+          <div *ngIf="Submitted && addForm.controls.state.errors">
+            Give state
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="zip" class="col-sm-2 col-form-label">Zip Code </label>
+        <div class="col-sm-6">
+          <input class="form-control" type="number" formControlName="zip" id="zip" name="zip"
+            [(ngModel)]="customer.address.zip" value="{{ customer.address.zip }}" />
+          <div *ngIf="Submitted && addForm.controls.zip.errors">Give zip</div>
+        </div>
+      </div>
+
+      <!-- Update Customer Information Button -->
+
+      <div class="form-group row">
+        <br />
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-lg btn-block">
+            Update
+          </button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>

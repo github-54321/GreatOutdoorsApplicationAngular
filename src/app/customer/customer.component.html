@@ -1,0 +1,179 @@
+<!-- Navigation selector -->
+
+<app-nav></app-nav><br />
+
+<!-- Header -->
+
+<div class="container">
+  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0);">
+    <div class="container">
+      <h2 style="text-align: center; color: white">CUSTOMER INFORMATION</h2>
+    </div>
+  </div>
+
+<!-- Customer Table -->
+
+  <div class="table-responsive">
+    <table *ngIf="customers" class="table table-hover table-bordered table-striped">
+      <thead style="background-color: black; color: white">
+        <tr>
+          <th>Customer Id</th>
+          <th>Customer Name</th>
+          <th>Mobile No</th>
+          <th>Email Id</th>
+          <th>Role</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.customerName }}</td>
+          <td>{{ customer.mobileNo }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.role }}</td>
+
+          <!-- Detail button -->
+
+          <td>
+            <button (click)="detail(customer.customerId)" class="btn btn-success">
+              Detail
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br />
+
+<!-- Header -->
+
+  <p *ngIf="customer.customerId > 0"></p>
+  <div [ngStyle]="{ visibility: isDivVisible ? 'visible' : 'hidden' }">
+    <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0);">
+      <div class="container">
+        <h2 style="text-align: center; color: white">CUSTOMER DETAILS</h2>
+      </div>
+    </div>
+
+<!-- Customer All Details -->
+
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered table-striped" border="3">
+        <thead style="background-color: black; color: white">
+          <tr>
+            <th>Customer Id</th>
+            <th>Customer Name</th>
+            <th>Mobile No</th>
+            <th>Email Id</th>
+            <th>Address Id</th>
+            <th>Building No</th>
+            <th>streetName</th>
+            <th>Area</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{ customer.customerId }}</td>
+            <td>{{ customer.customerName }}</td>
+            <td>{{ customer.mobileNo }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.address.addressId }}</td>
+            <td>{{ customer.address.buildingNo }}</td>
+            <td>{{ customer.address.streetName }}</td>
+            <td>{{ customer.address.area }}</td>
+            <td>{{ customer.address.city }}</td>
+            <td>{{ customer.address.state }}</td>
+            <td>{{ customer.address.zip }}</td>
+            <td>{{ customer.role }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br />
+
+<!-- Customer Edit Form -->
+
+    <div [ngStyle]="{ visibility: isDivVisible1 ? 'visible' : 'hidden' }">
+      <form (ngSubmit)="edit()">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="customerId">Customer Id :</label>
+            <input type="number" class="form-control" required [(ngModel)]="customer.customerId" name="customerId"
+              id="customerId" placeholder="Enter customerId" disabled />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="customerName">Customer Name :</label>
+            <input type="text" class="form-control" required [(ngModel)]="customer.customerName" name="customerName"
+              id="customerName" placeholder="Enter customerName" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="mobileNo">Mobile No :</label>
+            <input type="number" class="form-control" required [(ngModel)]="customer.mobileNo" name="mobileNo"
+              id="mobileNo" placeholder="Enter mobileNo" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="customerPassword">Customer Password :</label>
+            <input type="password" class="form-control" required [(ngModel)]="customer.customerPassword"
+              name="customerPassword" id="customerPassword" placeholder="Enter customerPassword" disabled />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="email">Email Id :</label>
+            <input type="email" class="form-control" required [(ngModel)]="customer.email" name="email" id="email"
+              placeholder="Enter Email Id" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="addressId">Address Id :</label>
+            <input type="number" class="form-control" required [(ngModel)]="customer.address.addressId" name="addressId"
+              id="addressId" placeholder="Enter addressId" disabled />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="buildingNo">Building No :</label>
+            <input type="number" class="form-control" required [(ngModel)]="customer.address.buildingNo"
+              name="buildingNo" id="buildingNo" placeholder="Enter buildingNo" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="streetName">Street Name :</label>
+            <input type="text" class="form-control" required [(ngModel)]="customer.address.streetName" name="streetName"
+              id="streetName" placeholder="Enter streetName" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="area">Area :</label>
+            <input type="text" class="form-control" required [(ngModel)]="customer.address.area" name="area" id="area"
+              placeholder="Enter area" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="city">City :</label>
+            <input type="text" class="form-control" required [(ngModel)]="customer.address.city" name="city"
+              id="city" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="state">State :</label>
+            <input type="text" required [(ngModel)]="customer.address.state" name="state" id="state"
+              class="form-control" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="zip">Zip :</label>
+            <input type="text" required [(ngModel)]="customer.address.zip" class="form-control" name="zip" id="zip" />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="role">Role :</label>
+            <input type="text" required [(ngModel)]="customer.role" class="form-control" name="role" id="role" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>

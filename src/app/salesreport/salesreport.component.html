@@ -1,0 +1,75 @@
+<!-- Navigation selector -->
+
+<app-nav></app-nav><br />
+
+
+<!-- Header- Sales Report -->
+
+<div class="container text-center">
+  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0);">
+    <div class="container">
+      <h2 style="text-align: center; color: white">SALES REPORT</h2>
+    </div>
+  </div>
+
+  <br />
+
+  <!-- Product Sales Search Button -->
+
+  <div class="input-group">
+    <div class="form-group col-md-6">
+      <input style="height: 40px; text-align: center; border-color: rgb(106, 40, 168)" class="form-control"
+        type="search" [(ngModel)]="productId" placeholder="search" aria-label="Search" />
+    </div>
+    <div class="form-group col-md-6">
+
+      <button class="btn btn-success" (click)="searchByProductId()">
+        Sales By Product Id
+      </button>
+    </div>
+  </div>
+</div>
+<br />
+
+<!-- Table For Product Sales -->
+
+<div class="table-responsive">
+  <div class="container">
+    <table *ngIf="sales" class="table table-hover table-bordered table-striped">
+      <thead style="background-color: black; color: white">
+        <tr>
+          <td>Product Image</td>
+          <td>Sales Report Id</td>
+          <td>productId</td>
+          <td>productName</td>
+          <td>Product price</td>
+          <td>Product color</td>
+          <td>Product category</td>
+          <td>Product quantity</td>
+          <td>manufacturer</td>
+          <td>quantitySold</td>
+          <td>totalSale</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sale of sales">
+          <td>
+            <img src="{{ sale.proddetails.image }}" width="100" height="100" />
+          </td>
+          <td>{{ sale.salesReportId }}</td>
+          <td>{{ sale.proddetails.productId }}</td>
+          <td>{{ sale.proddetails.productName }}</td>
+          <td>{{ sale.proddetails.price }}</td>
+          <td>{{ sale.proddetails.color }}</td>
+          <td>{{ sale.proddetails.category }}</td>
+          <td>{{ sale.proddetails.quantity }}</td>
+          <td>{{ sale.proddetails.manufacturer }}</td>
+          <td>{{ sale.quantitySold }}</td>
+          <td>{{ sale.totalSale }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+  </div>
+</div>

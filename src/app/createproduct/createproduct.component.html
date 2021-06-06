@@ -1,0 +1,116 @@
+<!--  Navigation selector -->
+
+<app-nav></app-nav><br />
+
+<!-- Header -->
+
+<div class="container">
+  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0)">
+    <h2 style="text-align: center" class="text-white">
+      ADD NEW PRODUCT INFORMATION
+    </h2>
+  </div>
+
+  <!-- Form for Product Addition  -->
+
+  <form (ngSubmit)="saveproduct()" [formGroup]="productForm">
+
+    <div class="form-row" style="margin-left: 10%; margin-right: 10%">
+      <div class="form-group col-md-6">
+        <label for="productId">Pid</label>
+        <input type="text" class="form-control" formControlName="productId" id="productId" required
+          [(ngModel)]="product.productId" name="productId" />
+        <div *ngIf="Submitted && productForm.controls.productId.errors">
+          Give product id
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="productName">Name</label>
+        <input type="text" class="form-control" formControlName="productName" id="productName" required
+          [(ngModel)]="product.productName" name="productName" />
+        <div *ngIf="Submitted && productForm.controls.productName.errors">
+          Give Product Name
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" style="margin-left: 10%; margin-right: 10%">
+      <div class="form-group col-md-6">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" formControlName="price" id="price" min="1" required
+          [(ngModel)]="product.price" name="price" />
+        <div *ngIf="Submitted && productForm.controls.price.errors">
+          Give product Price more than 0
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="image">Image</label>
+        <input type="url" class="form-control" formControlName="image" id="image" required [(ngModel)]="product.image"
+          name="image" />
+        <div *ngIf="Submitted && productForm.controls.image.errors">
+          Give product image
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" style="margin-left: 10%; margin-right: 10%">
+      <div class="form-group col-md-6">
+        <label for="color">color</label>
+        <input type="text" class="form-control" formControlName="color" id="color" required [(ngModel)]="product.color"
+          name="color" />
+        <div *ngIf="Submitted && productForm.controls.color.errors">
+          Give product Color
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="category">category</label>
+        <br />
+        <select class="form-control" formControlName="category" style="width: 100%; height: 38px; text-shadow: gray"
+          name="category" id="category" [(ngModel)]="product.category">
+          <option *ngFor="let c of category" [value]="c">{{ c }}</option>
+        </select>
+        <div *ngIf="Submitted && productForm.controls.category.errors">
+          Give product Category
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" style="margin-left: 10%; margin-right: 10%">
+      <div class="form-group col-md-3">
+        <label for="quantity">quantity</label>
+        <input type="text" class="form-control" formControlName="quantity" min="1" id="quantity" required
+          [(ngModel)]="product.quantity" name="quantity" />
+        <div *ngIf="Submitted && productForm.controls.quantity.errors">
+          Give product Quantity
+        </div>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="manufacturer">manufacturer</label>
+        <input type="text" class="form-control" formControlName="manufacturer" id="manufacturer" required
+          [(ngModel)]="product.manufacturer" name="manufacturer" />
+        <div *ngIf="Submitted && productForm.controls.manufacturer.errors">
+          Give product manufacturer
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="specification">specification</label>
+        <input type="text" class="form-control" formControlName="specification" id="specification" required
+          [(ngModel)]="product.specification" name="quantity" />
+        <div *ngIf="Submitted && productForm.controls.specification.errors">
+          Give product specification
+        </div>
+      </div>
+    </div>
+
+    <!--Submit Form Button  -->
+
+    <button type="submit" class="btn btn-success" style="margin-left: 50%; margin-right: 50%">
+      Submit
+    </button>
+  </form>
+</div>

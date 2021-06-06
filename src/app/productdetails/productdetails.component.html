@@ -1,0 +1,123 @@
+<!-- Navigation Selector -->
+
+<app-nav></app-nav>
+
+<!--Section: Block Content-->
+
+<section class="mb-5">
+
+  <div class="row" style="margin-left:2%">
+    <div class="col-md-4 mb-4 mb-md-0">
+
+      <div id="mdb-lightbox-ui"></div>
+
+      <div class="mdb-lightbox">
+
+        <div class="row product-gallery mx-1">
+
+          <div class="col-12 mb-0">
+            <figure class="view overlay rounded z-depth-1 main-img">
+              <a href="{{product.image}}" data-size="710x823">
+                <img src="{{product.image}}" class="img-fluid z-depth-1">
+              </a>
+            </figure>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6" style="margin-left:2%">
+
+      <h1>{{product.productName}}</h1>
+      <h3>
+        <p class="mb-2 text-muted text-uppercase small">{{product.category}}</p>
+      </h3>
+
+      <p><span class="mr-1"><strong>Price: <span style="font-size:25px">&#8377;</span><span
+              style="font-size:30px; color:rgb(192, 95, 71);">{{product.price}}</span></strong></span></p>
+
+      <!-- Add wishlist Button   -->
+
+      <button class="btn btn-success text-right" (click)="addtowishlist()">
+        <span class="glyphicon glyphicon-heart"></span> </button>
+      <div class="table-responsive">
+
+        <!-- Product Information Table  -->
+
+        <table class="table table-sm table-borderless mb-0">
+          <tbody>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Manufacturer</strong></th>
+              <td>{{product.manufacturer}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
+              <td>{{product.color}}</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Specification</strong></th>
+              <td>{{product.specification}} </td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Quantity</strong></th>
+              <td>Only {{product.quantity}} left</td>
+            </tr>
+            <tr>
+              <th class="pl-0 w-25" scope="row"><strong>Category</strong></th>
+              <td>{{product.category}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <div class="table-responsive mb-2">
+        <table class="table table-sm table-borderless">
+          <tbody>
+            <tr>
+              <td class="pl-0 pb-0 w-25">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity
+              </td>
+
+            </tr>
+            <tr>
+
+              <!-- Quantity Button -->
+
+              <button type="button" class="btn btn-primary btn-md mr-1 mb-2" (click)="minus()"><span
+                  class="glyphicon glyphicon-minus"></span></button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-primary btn-md mr-1 mb-2" (click)="plus()"><span
+                  class="glyphicon glyphicon-plus"></span></button><br>
+              <input type="number" style="width:185px; text-align: center;" [value]="pquantity" class="form-control"
+                id="productQuantity" required [(ngModel)]="pquantity" name="pquantity">
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--Add Order & Add To Cart button  -->
+
+      <button type="button" class="btn btn-primary btn-md mr-1 mb-2" (click)='addorder()'>Buy now</button>
+      <button type="button" class="btn btn-success btn-md mr-1 mb-2" (click)='addtocart()'><span
+          class="glyphicon glyphicon-shopping-cart"></span>Add to cart</button>
+
+    </div>
+
+  </div>
+
+
+</section>
+
+<!--Section: Block Content-->
+
+<script>
+  $(document).ready(function () {
+    // MDB Lightbox Init
+    $(function () {
+      $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+    });
+  });
+</script>

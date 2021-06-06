@@ -1,0 +1,37 @@
+<!-- Navigation Selector  -->
+
+<app-nav></app-nav>
+
+<!-- Header  -->
+
+<h1 class="mt-5 theme-color mb-5">Thanks for your order</h1>
+
+<!-- Order Information -->
+
+<div *ngFor="let orderInfo of ordersList">
+  <div class="col-md-3 mb-5" style="border:1px solid black; margin-left: 1%; height:300px; width:300px;">
+    <span class="theme-color">Payment Summary</span>
+    <div class="mb-3">
+      <hr class="new1">
+    </div>
+    <div class="d-flex justify-content-between"> <small>Order ID</small> <small>{{orderInfo.orderId}}</small> </div>
+    <div *ngFor="let product of orderInfo.productList">
+      <div class="d-flex justify-content-between"> <span
+          class="font-weight-bold">{{product.productName}}(Qty:{{product.quantity}})</span> <span
+          class="text-muted">&#8377;{{product.price}}</span> </div>
+    </div>
+    <div class="d-flex justify-content-between"> <small>Dispatch Date</small> <small> {{orderInfo.dispatchDate}}</small>
+    </div>
+    <div class="d-flex justify-content-between"> <small>Delivery Date </small> <small>{{orderInfo.deliveryDate}}</small>
+    </div>
+    <div class="d-flex justify-content-between"> <small>Shipping</small> <small>&#8377;00.00</small> </div>
+    <div class="d-flex justify-content-between"> <small>Tax</small> <small>&#8377;00.00</small> </div>
+    <div class="d-flex justify-content-between mt-3"> <span class="font-weight-bold">Total</span> <span
+        class="font-weight-bold theme-color">&#8377;{{orderInfo.totalPrice}}</span> </div>
+
+    <!-- Delete Button  -->
+
+    <button style="background-color: black;color: white;" (click)="removeOrderByOrderId(orderInfo.orderId)"> <span
+        class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete Order</button>
+  </div>
+</div>

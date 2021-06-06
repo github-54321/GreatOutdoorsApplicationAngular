@@ -1,0 +1,106 @@
+<!-- Navigation selector -->
+
+<app-nav></app-nav><br />
+
+<!-- Header  -->
+
+<div class="container">
+  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0); height:10;">
+    <h2 style="text-align: center; color: white">GROWTH REPORT</h2>
+  </div>
+</div>
+
+<br />
+
+<!-- Growth Report By Date -->
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="form-row">
+      <div class="form-group col-md-12 center">
+        <div class="form-group col-md-6">
+          <input type="date" class="form-control" id="currentdate" required [(ngModel)]="currentDate" name="currentdate"
+            placeholder="DD-MM-YYYY" style=" border-color: rgb(106, 40, 168)">
+        </div>
+        <div class="form-group col-md-6">
+          <div class="container" style="display: flex; justify-content:center;">
+
+            <!-- Get Report Button -->
+
+            <button class="btn btn-success " (click)='createGrowthReport()'>Get Growth Report</button>
+          </div>
+        </div>
+
+        <br>
+        <br> <br> <br>
+
+<!-- Growth Table -->
+
+        <div class="table-responsive">
+          <table *ngIf="growths" align="center" border="1" class="table table-hover table-bordered table-striped">
+            <thead style="background-color: black; color: white">
+              <tr>
+                <td>currentdate</td>
+                <td>revenue</td>
+                <td>amountChange</td>
+                <td>percentageGrowth</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let growth of growths">
+                <td>{{ growth.currentdate}}</td>
+                <td>{{ growth.revenue}}</td>
+                <td>{{ growth.amountChange }}</td>
+                <td>{{ growth.percentageGrowth }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <br />
+
+      </div>
+
+      <div class="container">
+        <div class="container" style="display: flex; justify-content:left;">
+
+<!-- Growth Report Graph Button -->
+
+          <button class="btn btn-success " type="button" data-toggle="collapse" data-target="#growthgraph"
+            aria-expanded="false" aria-controls="collapseExample">
+            Growth Report <span class="glyphicon glyphicon-circle-arrow-down"></span>
+          </button><br><br>
+        </div>
+      </div>
+
+
+<!--  Growth Graph Table  -->
+
+      <div class="container">
+
+        <div class="table-responsive">
+          <div class="collapse" id=growthgraph>
+            <table *ngIf="growths" align="center" class="table table-hover ">
+
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Growth</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let growth of growths">
+                  <td>{{ growth.currentdate}}</td>
+
+                  <td><img src='../assets/{{ growth.colorCode }}.jpg' width="{{growth.percentageGrowth*4}}" height="20"
+                      title="{{growth.percentageGrowth}}%"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

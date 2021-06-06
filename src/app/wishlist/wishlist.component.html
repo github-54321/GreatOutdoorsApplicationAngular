@@ -1,0 +1,57 @@
+
+<!-- Navigation Selector  -->
+
+<app-nav></app-nav>
+
+
+<!--Section: Block Content-->
+<section>
+
+  <!-- Grid row -->
+  <div class="row" style="margin-left: 3%; margin-right: 3%;">
+
+    <!-- Grid column -->
+    <div class="col-md-3 mb-5" *ngFor="let product of wish.productIds">
+
+      <!-- Card -->
+      <div class="" style="margin-left: 5%; margin-right: 5%;">
+
+
+        <img src="{{ product.image }}" alt="Sample" width="300px" height="400px">
+
+
+        <div class="text-center pt-4">
+
+          <h2>{{ product.productName }}</h2>
+          <p class="mb-2 text-muted text-uppercase small">Shirts</p>
+          <hr>
+          <h3 class="mb-3">&#8377; {{ product.price }}</h3>
+
+          <!-- Details Button -->
+
+          <button type="button" style="width: 100px;" (click)="getDetails(product.productId)"
+            class="btn btn-success">Details</button>&nbsp;&nbsp;
+
+          <!-- Remove Button -->
+
+          <button type="button" class="btn" style="background-color: black;color: white;"
+            (click)="remove(product.productId, wish.customer.customerId)"><span
+            class="glyphicon glyphicon-trash"></span></button>
+
+
+        </div>
+
+      </div>
+      <!-- Card -->
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+
+
+  </div>
+  <!-- Grid row -->
+
+</section>
+<!--Section: Block Content-->
