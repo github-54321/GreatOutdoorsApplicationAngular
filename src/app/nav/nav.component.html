@@ -83,7 +83,7 @@
             <a class="nav-link" href="#" routerLink="/profile" *ngIf="this.isLoggedCustomer"><span
                 class="glyphicon glyphicon-user"> </span> PROFILE</a>
           </li>
-
+          <hr>
           <li>
             <a class="nav-link" href="#" routerLink="/logoutcust" *ngIf="this.isLoggedCustomer"><span
                 class="glyphicon glyphicon-log-out"> </span> LOGOUT</a>
@@ -108,16 +108,19 @@
             <a class="nav-link" href="#" routerLink="/create" *ngIf="this.isLoggedAdmin"><span
                 class="glyphicon glyphicon-plus"> </span> ADD PRODUCT</a>
           </li>
+          <hr>
           <li>
             <a class="nav-link" href="#" routerLink="/salesreport" *ngIf="this.isLoggedAdmin"><span
                 class="glyphicon glyphicon-file"> </span> SALES REPORT</a>
 
           </li>
+          <hr>
           <li>
             <a class="nav-link" href="#" routerLink="/growthreport" *ngIf="this.isLoggedAdmin"><span
                 class="glyphicon glyphicon-signal"> </span> GROWTH REPORT</a>
 
           </li>
+          <hr>
           <li>
             <a class="nav-link" href="#" routerLink="/logoutcust"
               *ngIf="this.isLoggedAdmin || this.isLoggedCustomer"><span class="glyphicon glyphicon-log-out"> </span>
