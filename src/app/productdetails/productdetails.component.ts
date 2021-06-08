@@ -33,16 +33,12 @@ export class ProductdetailsComponent implements OnInit {
     private serviceorder: OrderService,
     private servicewish: WishlistService,
     private route: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
+    // Display Product Information
 
-    // Display Product Information 
-
-    if (
-      sessionStorage.getItem('userid') != null ||
-      sessionStorage.getItem('adminid')
-    ) {
+    if (sessionStorage.getItem('userid') != null) {
       if (sessionStorage.getItem('productId') != null) {
         this.productId = sessionStorage.getItem('productId') as string;
         this.service.getProductById(this.productId).subscribe((mydata) => {

@@ -10,7 +10,6 @@ import { ProfileService } from '../profile.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  
   addForm!: FormGroup;
   Submitted: boolean = false;
   customers!: any;
@@ -24,10 +23,9 @@ export class ProfileComponent implements OnInit {
     private service: ProfileService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     // Validations
 
     this.addForm = this.formBuilder.group({
@@ -66,17 +64,23 @@ export class ProfileComponent implements OnInit {
   // Edit Customer Details
 
   editdetail(id: number): void {
-    this.isDivVisible = false;
-    this.service.updateCustomer(this.customer).subscribe(
-      (data) => {
-        console.log(data);
-        this.customer = data;
-        this.reloadData();
-      },
-      (error) => {
-        console.log(error);
-        alert("Can't edit profile at moment");
-      }
-    );
+    this.Submitted = true;
+    if (this.addForm.invalid) {
+      console.log(this.addForm);
+      return;
+    } else {
+      this.isDivVisible = false;
+      this.service.updateCustomer(this.customer).subscribe(
+        (data) => {
+          console.log(data);
+          this.customer = data;
+          this.reloadData();
+        },
+        (error) => {
+          console.log(error);
+          alert('Please enter proper data');
+        }
+      );
+    }
   }
 }

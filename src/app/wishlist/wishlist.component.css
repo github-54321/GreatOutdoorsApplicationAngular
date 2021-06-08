@@ -1,0 +1,26 @@
+body {
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow: hidden;
+  background: linear-gradient(
+    45deg,
+    rgb(224, 174, 37),
+    #71b7e6,
+    rgb(210, 213, 35)
+  );
+  background-size: 600% 100%;
+  animation: gradient 10s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

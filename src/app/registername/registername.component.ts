@@ -21,11 +21,10 @@ export class RegisternameComponent implements OnInit {
     private service: CustomerService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
-    // Validations 
+    // Validations
 
     this.addForm = this.formBuilder.group({
       customerName: ['', Validators.required],
@@ -70,7 +69,6 @@ export class RegisternameComponent implements OnInit {
   savecustomer() {
     this.Submitted = true;
     if (this.addForm.invalid) {
-      alert('Registration is not Valid');
       console.log(this.addForm);
       return;
     } else {

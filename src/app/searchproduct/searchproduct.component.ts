@@ -32,7 +32,7 @@ export class SearchproductComponent implements OnInit {
 
   type2!: number;
 
-  constructor(private service: ProductService, private router: Router) { }
+  constructor(private service: ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.service.getProductList().subscribe((mydata) => {
@@ -50,7 +50,7 @@ export class SearchproductComponent implements OnInit {
       });
   }
 
-  // Get Product Details 
+  // Get Product Details
 
   getDetails(productId: string): void {
     this.service.getProductById(productId).subscribe(
@@ -72,7 +72,6 @@ export class SearchproductComponent implements OnInit {
   getProducts() {
     this.service.getProductByCategory(this.type1).subscribe(
       (data) => {
-        console.log('product is added to cart');
         this.products = data;
       },
       (error) => {
@@ -87,7 +86,6 @@ export class SearchproductComponent implements OnInit {
   filterProductsByPrice() {
     this.service.filterByPrice(this.type2).subscribe(
       (data) => {
-        console.log('product is added to cart');
         this.products = data;
       },
       (error) => {

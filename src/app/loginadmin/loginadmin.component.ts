@@ -21,10 +21,9 @@ export class LoginadminComponent implements OnInit {
     private service: CustomerService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     // Validations
 
     this.loginForm = this.formBuilder.group({
@@ -38,7 +37,6 @@ export class LoginadminComponent implements OnInit {
   login() {
     this.Submitted = true;
     if (this.loginForm.invalid) {
-      alert('Invalid input');
       console.log(this.loginForm);
       return;
     } else {

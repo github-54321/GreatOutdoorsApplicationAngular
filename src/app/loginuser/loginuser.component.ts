@@ -18,7 +18,7 @@ export class LoginuserComponent implements OnInit {
     private service: CustomerService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,7 +30,6 @@ export class LoginuserComponent implements OnInit {
   login() {
     this.Submitted = true;
     if (this.loginForm.invalid) {
-      alert('Invalid inputs');
       console.log(this.loginForm);
       return;
     } else {

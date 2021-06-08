@@ -12,7 +12,7 @@ export class OrderComponent implements OnInit {
   orderInfo: OrderInfo = new OrderInfo();
   ordersList: OrderInfo[] = [];
 
-  constructor(private serviceorder: OrderService) { }
+  constructor(private serviceorder: OrderService) {}
 
   ngOnInit(): void {
     this.reloadData();
@@ -35,7 +35,6 @@ export class OrderComponent implements OnInit {
     );
   }
 
-
   //Delete Order By Product Id
 
   removeOrder(productId: string): void {
@@ -54,20 +53,42 @@ export class OrderComponent implements OnInit {
     );
   }
 
-   //Delete Order By Order Id
+  //Delete Order By Order Id
+
+  //   removeOrderByOrderId(orderId: number): void {
+  //     this.serviceorder.deleteOrderByorderId(orderId).subscribe(
+  //       (data) => {
+  //         console.log(data);
+  //         this.orderInfo = data;
+  //         this.reloadData();
+  //         console.log(this.orderInfo);
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //         alert('Order is delivered');
+  //       }
+  //     );
+  //   }
+  // }
 
   removeOrderByOrderId(orderId: number): void {
-    this.serviceorder.deleteOrderByorderId(orderId).subscribe(
-      (data) => {
-        console.log(data);
-        this.orderInfo = data;
-        this.reloadData();
-        console.log(this.orderInfo);
-      },
-      (error) => {
-        console.log(error);
-        alert('Order is delivered');
-      }
-    );
+    var txt;
+    var r = confirm('Are you Sure');
+    if (r == true) {
+      this.serviceorder.deleteOrderByorderId(orderId).subscribe(
+        (data) => {
+          console.log(data);
+          this.orderInfo = data;
+          this.reloadData();
+          console.log(this.orderInfo);
+        },
+        (error) => {
+          console.log(error);
+          alert('Order is delivered');
+        }
+      );
+    } else {
+      txt = 'You pressed Cancel!';
+    }
   }
 }

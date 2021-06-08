@@ -10,12 +10,11 @@ import { Product } from './Product';
   providedIn: 'root',
 })
 export class ProductService {
-
   // Base URL connecting Backend
 
   private baseUrl = 'http://localhost:8082/api/v1';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Get All Products
 
@@ -44,9 +43,7 @@ export class ProductService {
   // Update Product
 
   editProduct(product: Product): Observable<any> {
-    return this.http
-      .put(`${this.baseUrl}/updateProduct`, product)
-      .pipe(catchError(this.handleError));
+    return this.http.put(`${this.baseUrl}/updateProduct`, product);
   }
 
   // Get Product By Id

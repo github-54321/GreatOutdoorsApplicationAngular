@@ -41,14 +41,14 @@
           <td>Product Image</td>
           <td>Sales Report Id</td>
           <td>productId</td>
-          <td>productName</td>
+          <td>ProductName</td>
           <td>Product price</td>
           <td>Product color</td>
           <td>Product category</td>
-          <td>Product quantity</td>
-          <td>manufacturer</td>
-          <td>quantitySold</td>
-          <td>totalSale</td>
+          <td>Quantity Remaining</td>
+          <td>Manufacturer</td>
+          <td>Quantity Sold</td>
+          <td>Total Sale</td>
         </tr>
       </thead>
       <tbody>
@@ -59,13 +59,13 @@
           <td>{{ sale.salesReportId }}</td>
           <td>{{ sale.proddetails.productId }}</td>
           <td>{{ sale.proddetails.productName }}</td>
-          <td>{{ sale.proddetails.price }}</td>
+          <td>&#8377; {{ sale.proddetails.price }}</td>
           <td>{{ sale.proddetails.color }}</td>
           <td>{{ sale.proddetails.category }}</td>
           <td>{{ sale.proddetails.quantity }}</td>
           <td>{{ sale.proddetails.manufacturer }}</td>
           <td>{{ sale.quantitySold }}</td>
-          <td>{{ sale.totalSale }}</td>
+          <td> &#8377; {{ sale.totalSale }}</td>
         </tr>
       </tbody>
     </table>

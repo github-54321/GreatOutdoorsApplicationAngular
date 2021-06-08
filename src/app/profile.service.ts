@@ -8,12 +8,11 @@ import { Customer } from './Customer';
   providedIn: 'root',
 })
 export class ProfileService {
-
   // Base URL connecting Backend
 
   private baseUrl = 'http://localhost:8082/api/v1';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // Get Customer By Id
 
@@ -23,16 +22,14 @@ export class ProfileService {
       .pipe(catchError(this.handleError));
   }
 
-  // Update Customer Details 
+  // Update Customer Details
 
   updateCustomer(customer: Customer): Observable<any> {
-    return this.http
-      .put(`${this.baseUrl}` + `/updatecustomer/`, customer)
-      .pipe(catchError(this.handleError));
+    return this.http.put(`${this.baseUrl}` + `/updatecustomer/`, customer);
   }
 
   // Handling Error
-  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('Client Side Error: ', error.error.message);

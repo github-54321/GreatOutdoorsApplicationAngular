@@ -34,22 +34,22 @@
         <br>
         <br> <br> <br>
 
-<!-- Growth Table -->
+        <!-- Growth Table -->
 
         <div class="table-responsive">
           <table *ngIf="growths" align="center" border="1" class="table table-hover table-bordered table-striped">
             <thead style="background-color: black; color: white">
               <tr>
-                <td>currentdate</td>
-                <td>revenue</td>
-                <td>amountChange</td>
-                <td>percentageGrowth</td>
+                <td>Date</td>
+                <td>Revenue</td>
+                <td>Amount Change</td>
+                <td>Growth Percentage</td>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let growth of growths">
                 <td>{{ growth.currentdate}}</td>
-                <td>{{ growth.revenue}}</td>
+                <td>&#8377; {{ growth.revenue}}</td>
                 <td>{{ growth.amountChange }}</td>
                 <td>{{ growth.percentageGrowth }}</td>
               </tr>
@@ -64,7 +64,7 @@
       <div class="container">
         <div class="container" style="display: flex; justify-content:left;">
 
-<!-- Growth Report Graph Button -->
+          <!-- Growth Report Graph Button -->
 
           <button class="btn btn-success " type="button" data-toggle="collapse" data-target="#growthgraph"
             aria-expanded="false" aria-controls="collapseExample">
@@ -72,9 +72,9 @@
           </button><br><br>
         </div>
       </div>
+      <br>
 
-
-<!--  Growth Graph Table  -->
+      <!--  Growth Graph Table  -->
 
       <div class="container">
 
@@ -83,6 +83,7 @@
             <table *ngIf="growths" align="center" class="table table-hover ">
 
               <thead>
+                <br>
                 <tr>
                   <th>Date</th>
                   <th>Growth</th>

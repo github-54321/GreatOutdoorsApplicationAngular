@@ -11,13 +11,13 @@ export class GrowthreportComponent implements OnInit {
   growth: Growthreport = new Growthreport();
   growths!: Growthreport[];
   currentDate!: string;
-  constructor(private growthservice: GrowthreportService) { }
+  constructor(private growthservice: GrowthreportService) {}
 
   ngOnInit(): void {
     this.reloadData();
   }
 
-  // Get All Growth Reports 
+  // Get All Growth Reports
 
   reloadData() {
     this.growthservice.getGrowthReports().subscribe((mydata) => {
@@ -36,7 +36,7 @@ export class GrowthreportComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        //  console.log('hello');
+
         alert('Invalid Date');
       }
     );

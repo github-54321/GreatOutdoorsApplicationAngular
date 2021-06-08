@@ -15,12 +15,11 @@ export class CustomerComponent implements OnInit {
   isDivVisible: boolean = false;
   isDivVisible1: boolean = false;
 
-  constructor(private service: CustomerService, private router: Router) { }
+  constructor(private service: CustomerService, private router: Router) {}
 
   ngOnInit(): void {
     this.reloadData();
   }
-
 
   // All Customers Details
 
@@ -34,23 +33,6 @@ export class CustomerComponent implements OnInit {
       (error) => {
         console.log(error);
         alert('Page unavailable at this moment');
-      }
-    );
-  }
-
-  // Delete Customer Details
-
-  remove(customerId: number): void {
-    this.service.removeCustomerById(customerId).subscribe(
-      (data) => {
-        console.log(data);
-        this.customers = data;
-        alert('Customer Data Deleted');
-        this.reloadData();
-      },
-      (error) => {
-        console.log(error);
-        alert('invalid Operation');
       }
     );
   }

@@ -25,7 +25,24 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(
+    45deg,
+    #71b7e6,
+    #9b59b6,
+    rgb(210, 213, 35),
+    hsl(0, 72%, 49%)
+  );
+  background-size: 600% 100%;
+  animation: gradient 10s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
 }
 .container {
   max-width: 700px;

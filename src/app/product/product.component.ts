@@ -22,10 +22,9 @@ export class ProductComponent implements OnInit {
     private service: ProductService,
     private formBuilder: FormBuilder,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-
     // Save All Product
 
     if (sessionStorage.getItem('adminid') != null) {
@@ -36,8 +35,7 @@ export class ProductComponent implements OnInit {
       this.router.navigate(['/mainhome']);
     }
 
-
-    // Validations 
+    // Validations
 
     this.productForm = this.formBuilder.group({
       productId: ['', Validators.required],
@@ -83,7 +81,7 @@ export class ProductComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        alert('product not found');
+        alert('Please enter valid details');
       }
     );
   }
@@ -91,22 +89,27 @@ export class ProductComponent implements OnInit {
   // Edit Product By Id
 
   editprod(productId: string): void {
-    this.isDivVisible = true;
-    this.isDivVisible1 = true;
-    this.service.getProductById(productId).subscribe(
-      (data) => {
-        console.log(data);
-        this.product = data;
-        this.reloadData();
-      },
-      (error) => {
-        console.log(error);
-        alert("Can't edit product at moment");
-      }
-    );
+    this.Submitted = true;
+    if (this.productForm.invalid) {
+      console.log(this.productForm);
+      return;
+    } else {
+      this.isDivVisible = true;
+      this.isDivVisible1 = true;
+      this.service.getProductById(productId).subscribe(
+        (data) => {
+          console.log(data);
+          this.product = data;
+          this.reloadData();
+        },
+        (error) => {
+          console.log(error);
+          alert("Can't edit product at moment");
+        }
+      );
+    }
   }
-
-  // Delete Product By Id 
+  // Delete Product By Id
 
   remove(productId: string): void {
     this.service.removeProductById(productId).subscribe(

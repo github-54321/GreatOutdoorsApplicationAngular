@@ -5,11 +5,12 @@
 
 <!-- Navigation Selector -->
 
-<app-nav></app-nav><br />
+<app-nav></app-nav>
 
-<!-- Caraousels -->
+<body>
+  <!-- Caraousels -->
 
-<div class="container">
+  <!-- <div class="container"> -->
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -37,31 +38,31 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+  <!-- </div> -->
 
-<br />
+  <br />
 
-<!-- Search Product Button  -->
+  <!-- Search Product Button  -->
 
-<div class="container">
-  <input style="height: 40px; text-align: center; border-color: rgb(106, 40, 168)" class="form-control" type="search"
-    [(ngModel)]="searchValue" placeholder="search" aria-label="Search" />
-</div>
-<br />
+  <div class="container">
+    <input style="height: 40px; text-align: center; border-color: rgb(106, 40, 168)" class="form-control" type="search"
+      [(ngModel)]="searchValue" placeholder="search" aria-label="Search" />
+  </div>
+  <br />
 
-<!-- Select Product Category -->
+  <!-- Select Product Category -->
 
-<div class="container text-center">
-  <div class="input-group">
-    <div class="form-group col-md-3">
-      <select style="width: 100%; height: 40px; border-color: rgb(106, 40, 168)" class="custom-select" name="category"
-        id="category" [(ngModel)]="type1">
-        <option disabled selected hidden>select category</option>
-        <option *ngFor="let c of category" [value]="c">{{ c }}</option>
-      </select>
-    </div>
-    <div class="input-group-append">
-      <div class="form-group col-md-3">
+  <div class="container text-center">
+    <div class="input-group">
+      <div class="form-group col-md-6">
+        <select style="width: 100%; height: 40px; border-color: rgb(106, 40, 168)" class="custom-select" name="category"
+          id="category" [(ngModel)]="type1">
+          <option disabled selected hidden>select category</option>
+          <option *ngFor="let c of category" [value]="c">{{ c }}</option>
+        </select>
+      </div>
+      <!-- <div class="input-group-append"> -->
+      <div class="form-group col-md-6">
 
         <!-- Button To Select Category  -->
 
@@ -70,25 +71,25 @@
           Search category
         </button>
       </div>
+      <!-- </div> -->
     </div>
   </div>
-</div>
 
-<br />
+  <br />
 
-<!-- Apply Maximum Price -->
+  <!-- Apply Maximum Price -->
 
-<div class="container text-center">
-  <div class="input-group">
-    <div class="form-group col-md-3">
-      <select style="width: 100%; height: 40px; border-color: rgb(106, 40, 168)" class="custom-select" name="maxprice"
-        id="maxprice" [(ngModel)]="type2">
-        <option value="" disabled selected hidden>select Maxprice</option>
-        <option *ngFor="let m of maxprice" [value]="m">{{ m }}</option>
-      </select>
-    </div>
-    <div class="input-group-append">
-      <div class="form-group col-md-3">
+  <div class="container text-center">
+    <div class="input-group">
+      <div class="form-group col-md-6">
+        <select style="width: 100%; height: 40px; border-color: rgb(106, 40, 168)" class="custom-select" name="maxprice"
+          id="maxprice" [(ngModel)]="type2">
+          <option value="" disabled selected hidden>select Maxprice</option>
+          <option *ngFor="let m of maxprice" [value]="m">{{ m }}</option>
+        </select>
+      </div>
+      <!-- <div class="input-group-append"> -->
+      <div class="form-group col-md-6">
 
         <!-- Button For Max Price  -->
 
@@ -96,18 +97,18 @@
           Apply Max Price
         </button>
       </div>
+      <!-- </div> -->
     </div>
   </div>
-</div>
 
-<br />
-
+  <br />
 
 
-<!-- Display Products  -->
 
-<div class="container">
-  <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0);">
+  <!-- Display Products  -->
+
+  <div class="container">
+    <!-- <div class="jumbotron" style="background-image: linear-gradient(135deg, #0a9677, #efebf0);"> -->
     <div class="d-flex justify-content-center row">
       <div *ngIf="products">
 
@@ -161,4 +162,3 @@
       </div>
     </div>
   </div>
-</div>

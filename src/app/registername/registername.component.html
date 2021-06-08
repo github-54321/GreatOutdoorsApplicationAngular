@@ -35,7 +35,7 @@
               [(ngModel)]="customer.customerPassword" id="password" placeholder="Enter customerPassword">
             <div class="text-danger" *ngIf="Submitted && addForm.controls.customerPassword.errors">
               <div class="text-danger" *ngIf="addForm.controls.customerPassword.errors?.required">
-               Please Enter your Password
+                Please Enter your Password
               </div>
               <div class="text-danger" *ngIf="addForm.controls.customerPassword.errors?.pattern">
                 8-10 Characters Required
@@ -45,7 +45,7 @@
 
           <div class="form-group input-box">
             <label for="mobileNo" class="details">Customer mobileNo:</label>
-            <input type="number" formControlName="mobileNo" name="mobileNo" class="form-control"
+            <input type="tel" formControlName="mobileNo" name="mobileNo" class="form-control"
               [(ngModel)]="customer.mobileNo" id="mobileNo" placeholder="Enter mobileNo">
             <div *ngIf="Submitted && addForm.controls.mobileNo.errors">
               <div class="text-danger" *ngIf="addForm.controls.mobileNo.errors?.required">
@@ -72,7 +72,7 @@
                 Email is Required
               </div>
               <div class="text-danger" *ngIf="addForm.controls.email.errors?.pattern">
-                Email must be a valid 
+                Email must be a valid
               </div>
             </div>
           </div>

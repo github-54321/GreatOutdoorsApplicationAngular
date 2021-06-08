@@ -7,11 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./logoutuser.component.css'],
 })
 export class LogoutuserComponent implements OnInit {
-  constructor(private router: Router) { }
-
+  constructor(private router: Router) {}
 
   //Clearing Session
-  
+
   ngOnInit(): void {
     sessionStorage.clear();
     this.router.navigate(['/mainhome']);
